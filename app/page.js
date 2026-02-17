@@ -1,5 +1,9 @@
  "use client";
 
+/* 👉 REPLACE THESE WITH YOUR REAL LINKS */
+const GUMROAD_MAIN = "https://gumroad.com/l/your-paid-product";
+const GUMROAD_PREVIEW = "https://gumroad.com/l/your-free-preview";
+
 export default function Page() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-slate-50 to-white text-slate-800">
@@ -7,7 +11,15 @@ export default function Page() {
       {/* NAVBAR */}
       <nav className="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
         <h1 className="text-xl font-bold">MentalClarity</h1>
-        <button className="px-5 py-2 rounded-full bg-black text-white">
+
+        <button
+          onClick={() =>
+            document
+              .getElementById("products")
+              .scrollIntoView({ behavior: "smooth" })
+          }
+          className="px-5 py-2 rounded-full bg-black text-white"
+        >
           Get Started
         </button>
       </nav>
@@ -26,10 +38,21 @@ export default function Page() {
           </p>
 
           <div className="mt-8 flex gap-4">
-            <button className="px-7 py-3 rounded-xl bg-black text-white">
+            <button
+              onClick={() =>
+                document
+                  .getElementById("products")
+                  .scrollIntoView({ behavior: "smooth" })
+              }
+              className="px-7 py-3 rounded-xl bg-black text-white"
+            >
               Explore Notes
             </button>
-            <button className="px-7 py-3 rounded-xl border">
+
+            <button
+              onClick={() => window.open(GUMROAD_PREVIEW, "_blank")}
+              className="px-7 py-3 rounded-xl border"
+            >
               Free Preview
             </button>
           </div>
@@ -45,7 +68,10 @@ export default function Page() {
       </section>
 
       {/* PRODUCTS */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
+      <section
+        id="products"
+        className="max-w-7xl mx-auto px-6 py-20"
+      >
         <h3 className="text-4xl font-bold text-center mb-12">
           Popular Notes
         </h3>
@@ -71,7 +97,11 @@ function Product({ title, price }) {
     <div className="border rounded-2xl p-8 shadow hover:shadow-lg transition">
       <h4 className="text-xl font-semibold">{title}</h4>
       <p className="mt-4 text-2xl font-bold">{price}</p>
-      <button className="mt-6 w-full py-3 rounded-xl bg-black text-white">
+
+      <button
+        onClick={() => window.open(GUMROAD_MAIN, "_blank")}
+        className="mt-6 w-full py-3 rounded-xl bg-black text-white"
+      >
         Buy Now
       </button>
     </div>
