@@ -10,8 +10,18 @@ export default function Page() {
 
       {/* NAVBAR */}
       <nav className="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
-        <h1 className="text-xl font-bold">MentalClarity</h1>
 
+        {/* LEFT: LOGO + NAME */}
+        <div className="flex items-center gap-3">
+          <img
+            src="/images/tt.png"
+            alt="MentalClarity Logo"
+            className="w-10 h-10"
+          />
+          <h1 className="text-xl font-bold">MentalClarity</h1>
+        </div>
+
+        {/* RIGHT: BUTTON */}
         <button
           onClick={() =>
             document
@@ -58,9 +68,10 @@ export default function Page() {
           </div>
         </div>
 
+        {/* HERO IMAGE (REPLACED WITH tt.png) */}
         <div>
           <img
-            src="https://images.unsplash.com/photo-1506126613408-eca07ce68773"
+            src="/images/tt.png"
             alt="Mental clarity"
             className="rounded-3xl shadow-xl"
           />
@@ -68,16 +79,13 @@ export default function Page() {
       </section>
 
       {/* PRODUCTS */}
-      <section
-        id="products"
-        className="max-w-7xl mx-auto px-6 py-20"
-      >
+      <section id="products" className="max-w-7xl mx-auto px-6 py-20">
         <h3 className="text-4xl font-bold text-center mb-12">
           Popular Notes
         </h3>
 
         <div className="grid md:grid-cols-3 gap-8">
-          <Product title="Overthinking Detox" price="₹499" />
+          <Product title="Overthinking Detox" price="₹599" />
           <Product title="Daily Mental Reset" price="₹299" />
           <Product title="Clarity Blueprint" price="₹999" />
         </div>
