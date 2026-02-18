@@ -1,9 +1,14 @@
  "use client";
 
-/* 👉 REPLACE THESE WITH YOUR REAL LINKS */
+/* 👉 GLOBAL LINKS */
 const WHATSAPP_LINK = "https://whatsapp.com/channel/0029Vb7NJHw3mFYDENkWmn38";
-const GUMROAD_MAIN = "https://63592130913.gumroad.com/l/ssvwii";
-const GUMROAD_PREVIEW = "https://63592130913.gumroad.com/l/ssvwii";
+
+/* 👉 GUMROAD PRODUCT LINKS (each PDF is different) */
+const PRODUCTS = {
+  detox: "https://63592130913.gumroad.com/l/overthinking-detox",
+  reset: "https://63592130913.gumroad.com/l/daily-mental-reset",
+  blueprint: "https://63592130913.gumroad.com/l/clarity-blueprint",
+};
 
 export default function Page() {
   return (
@@ -46,7 +51,6 @@ export default function Page() {
 
           {/* CTAs */}
           <div className="mt-8 flex gap-4 flex-wrap">
-            {/* PRIMARY CTA */}
             <button
               onClick={() => window.open(WHATSAPP_LINK, "_blank")}
               className="px-7 py-3 rounded-xl bg-green-600 text-white"
@@ -54,9 +58,8 @@ export default function Page() {
               Get Daily Clarity on WhatsApp
             </button>
 
-            {/* SECONDARY CTA */}
             <button
-              onClick={() => window.open(GUMROAD_PREVIEW, "_blank")}
+              onClick={() => window.open(PRODUCTS.detox, "_blank")}
               className="px-7 py-3 rounded-xl border"
             >
               View Notes (Gumroad)
@@ -64,7 +67,7 @@ export default function Page() {
           </div>
         </div>
 
-        {/* HERO IMAGES (3) */}
+        {/* HERO IMAGES */}
         <div className="grid grid-cols-2 gap-4">
           <img src="/images/hero1.jpg" className="rounded-3xl shadow-xl" />
           <img src="/images/hero2.jpg" className="rounded-3xl shadow-xl mt-10" />
@@ -79,9 +82,23 @@ export default function Page() {
         </h3>
 
         <div className="grid md:grid-cols-3 gap-8">
-          <Product title="Overthinking Detox" price="₹599" />
-          <Product title="Daily Mental Reset" price="₹299" />
-          <Product title="Clarity Blueprint" price="₹999" />
+          <Product
+            title="Overthinking Detox"
+            price="₹599"
+            link={PRODUCTS.detox}
+          />
+
+          <Product
+            title="Daily Mental Reset"
+            price="₹299"
+            link={PRODUCTS.reset}
+          />
+
+          <Product
+            title="Clarity Blueprint"
+            price="₹999"
+            link={PRODUCTS.blueprint}
+          />
         </div>
       </section>
 
@@ -94,15 +111,15 @@ export default function Page() {
   );
 }
 
-/* COMPONENT */
-function Product({ title, price }) {
+/* PRODUCT COMPONENT */
+function Product({ title, price, link }) {
   return (
     <div className="border rounded-3xl p-6 shadow hover:scale-105 transition">
       <h4 className="text-xl font-semibold">{title}</h4>
       <p className="mt-2 text-2xl font-bold">{price}</p>
 
       <button
-        onClick={() => window.open(GUMROAD_MAIN, "_blank")}
+        onClick={() => window.open(link, "_blank")}
         className="mt-4 w-full py-3 rounded-xl bg-black text-white"
       >
         Buy on Gumroad
