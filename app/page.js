@@ -10,8 +10,6 @@ export default function Page() {
 
       {/* NAVBAR */}
       <nav className="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
-
-        {/* LEFT: LOGO + NAME */}
         <div className="flex items-center gap-3">
           <img
             src="/images/tt.png"
@@ -21,12 +19,11 @@ export default function Page() {
           <h1 className="text-xl font-bold">MentalClarity</h1>
         </div>
 
-        {/* RIGHT: BUTTON */}
         <button
           onClick={() =>
             document
               .getElementById("products")
-              .scrollIntoView({ behavior: "smooth" })
+              ?.scrollIntoView({ behavior: "smooth" })
           }
           className="px-5 py-2 rounded-full bg-black text-white"
         >
@@ -35,24 +32,31 @@ export default function Page() {
       </nav>
 
       {/* HERO */}
-      <section className="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-12 items-center">
+      <section className="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-14 items-center">
         <div>
           <h2 className="text-5xl font-extrabold leading-tight">
-            Clear Your Mind.
+            Stop Overthinking.
             <br />
-            Take Back Control.
+            Start Deciding.
           </h2>
 
           <p className="mt-6 text-lg text-slate-600">
-            Simple, practical notes to reduce overthinking and build focus.
+            MentalClarity gives you simple, practical systems to cut mental noise,
+            escape decision paralysis, and act with confidence — daily.
           </p>
+
+          <ul className="mt-6 space-y-2 text-slate-600">
+            <li>✔ Clear mental clutter</li>
+            <li>✔ Make faster decisions</li>
+            <li>✔ Build calm focus</li>
+          </ul>
 
           <div className="mt-8 flex gap-4">
             <button
               onClick={() =>
                 document
                   .getElementById("products")
-                  .scrollIntoView({ behavior: "smooth" })
+                  ?.scrollIntoView({ behavior: "smooth" })
               }
               className="px-7 py-3 rounded-xl bg-black text-white"
             >
@@ -68,50 +72,26 @@ export default function Page() {
           </div>
         </div>
 
-        {/* HERO IMAGE (REPLACED WITH tt.png) */}
-        <div>
+        {/* HERO IMAGES (3 only) */}
+        <div className="grid grid-cols-2 gap-4">
           <img
-            src="/images/tt.png"
-            alt="Mental clarity"
+            src="/images/hero1.jpg"
+            alt="Focus and clarity"
             className="rounded-3xl shadow-xl"
+          />
+          <img
+            src="/images/hero2.jpg"
+            alt="Calm thinking"
+            className="rounded-3xl shadow-xl mt-10"
+          />
+          <img
+            src="/images/hero3.jpg"
+            alt="Clear decisions"
+            className="rounded-3xl shadow-xl col-span-2"
           />
         </div>
       </section>
 
-      {/* PRODUCTS */}
-      <section id="products" className="max-w-7xl mx-auto px-6 py-20">
-        <h3 className="text-4xl font-bold text-center mb-12">
-          Popular Notes
-        </h3>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          <Product title="Overthinking Detox" price="₹599" />
-          <Product title="Daily Mental Reset" price="₹299" />
-          <Product title="Clarity Blueprint" price="₹999" />
-        </div>
-      </section>
-
-      {/* FOOTER */}
-      <footer className="py-10 text-center text-slate-500">
-        © 2026 MentalClarity. All rights reserved.
-      </footer>
-
     </main>
-  );
-}
-
-function Product({ title, price }) {
-  return (
-    <div className="border rounded-2xl p-8 shadow hover:shadow-lg transition">
-      <h4 className="text-xl font-semibold">{title}</h4>
-      <p className="mt-4 text-2xl font-bold">{price}</p>
-
-      <button
-        onClick={() => window.open(GUMROAD_MAIN, "_blank")}
-        className="mt-6 w-full py-3 rounded-xl bg-black text-white"
-      >
-        Buy Now
-      </button>
-    </div>
   );
 }
