@@ -3,7 +3,7 @@
 /* 👉 REPLACE THESE WITH YOUR REAL LINKS */
 const WHATSAPP_LINK = "https://whatsapp.com/channel/0029Vb7NJHw3mFYDENkWmn38";
 const GUMROAD_MAIN = "https://63592130913.gumroad.com/l/ssvwii";
-const GUMROAD_PREVIEW = "https://gumroad.com/l/your-free-preview";
+const GUMROAD_PREVIEW = "https://63592130913.gumroad.com/l/ssvwii";
 
 export default function Page() {
   return (
