@@ -1,145 +1,112 @@
- export default function Home() {
+ "use client";
+
+/* 👉 REPLACE THESE WITH YOUR REAL LINKS */
+const WHATSAPP_LINK = "https://wa.me/91XXXXXXXXXX";
+const GUMROAD_MAIN = "https://gumroad.com/l/your-paid-product";
+const GUMROAD_PREVIEW = "https://gumroad.com/l/your-free-preview";
+
+export default function Page() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-gradient-to-br from-slate-50 to-white text-slate-800">
 
       {/* NAVBAR */}
-      <nav className="max-w-6xl mx-auto px-6 py-6 flex justify-between items-center">
-        <h1 className="text-lg font-semibold tracking-tight">
-          Mental Clarity
-        </h1>
-        <a
-          href="#start"
-          className="text-sm text-slate-600 hover:text-slate-900 transition"
+      <nav className="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
+        <div className="flex items-center gap-3">
+          <img src="/images/tt.png" alt="MentalClarity Logo" className="w-10 h-10" />
+          <h1 className="text-xl font-bold">MentalClarity</h1>
+        </div>
+
+        <button
+          onClick={() => window.open(WHATSAPP_LINK, "_blank")}
+          className="px-5 py-2 rounded-full bg-green-600 text-white"
         >
-          Start here
-        </a>
+          Join WhatsApp
+        </button>
       </nav>
 
       {/* HERO */}
-      <section className="max-w-4xl mx-auto px-6 pt-24 pb-32 text-center">
-        <h2 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight">
-          Stop overthinking.
-          <br />
-          Decide with clarity.
-        </h2>
+      <section className="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-14 items-center">
+        <div>
+          <h2 className="text-5xl font-extrabold leading-tight">
+            Stop Overthinking.
+            <br />
+            Start Deciding.
+          </h2>
 
-        <p className="mt-6 text-lg text-slate-600 max-w-2xl mx-auto">
-          Practical systems to quiet mental noise, break decision paralysis,
-          and move forward without motivation hacks or therapy talk.
-        </p>
-
-        <div className="mt-10">
-          <a
-            href="#start"
-            className="inline-block rounded-xl bg-slate-900 px-6 py-3 text-white text-sm font-medium hover:bg-slate-800 transition"
-          >
-            Get clarity today
-          </a>
-        </div>
-      </section>
-
-      {/* PROBLEM */}
-      <section className="bg-white py-24">
-        <div className="max-w-5xl mx-auto px-6 grid gap-12 md:grid-cols-3">
-          <div>
-            <h3 className="font-semibold text-lg">Mental overload</h3>
-            <p className="mt-3 text-slate-600">
-              Too many thoughts. Too many options. Your brain never shuts up.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-semibold text-lg">Decision paralysis</h3>
-            <p className="mt-3 text-slate-600">
-              You know what to do — but you keep delaying, second-guessing,
-              and looping.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-semibold text-lg">Fake solutions</h3>
-            <p className="mt-3 text-slate-600">
-              Motivation, quotes, and advice that sounds good but changes nothing.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* SOLUTION */}
-      <section className="py-28">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h3 className="text-3xl font-semibold tracking-tight">
-            A system. Not self-help.
-          </h3>
-
-          <p className="mt-6 text-slate-600 max-w-2xl mx-auto">
-            Mental clarity isn’t about fixing yourself.
-            It’s about reducing friction in how you think and decide.
+          <p className="mt-6 text-lg text-slate-600">
+            Practical mental clarity systems to help you escape decision paralysis
+            and take confident action — without motivation fluff.
           </p>
 
-          <div className="mt-16 grid gap-10 md:grid-cols-3 text-left">
-            <div>
-              <span className="text-sm font-medium text-slate-400">01</span>
-              <h4 className="mt-2 font-semibold">Clear the noise</h4>
-              <p className="mt-2 text-slate-600">
-                Simple mental dumps and filters to stop runaway thinking.
-              </p>
-            </div>
+          <ul className="mt-6 space-y-2 text-slate-600">
+            <li>✔ Clear mental clutter</li>
+            <li>✔ Make faster decisions</li>
+            <li>✔ Build calm daily focus</li>
+          </ul>
 
-            <div>
-              <span className="text-sm font-medium text-slate-400">02</span>
-              <h4 className="mt-2 font-semibold">Decide faster</h4>
-              <p className="mt-2 text-slate-600">
-                Lightweight frameworks to choose without over-analysis.
-              </p>
-            </div>
+          {/* CTAs */}
+          <div className="mt-8 flex gap-4 flex-wrap">
+            {/* PRIMARY CTA */}
+            <button
+              onClick={() => window.open(WHATSAPP_LINK, "_blank")}
+              className="px-7 py-3 rounded-xl bg-green-600 text-white"
+            >
+              Get Daily Clarity on WhatsApp
+            </button>
 
-            <div>
-              <span className="text-sm font-medium text-slate-400">03</span>
-              <h4 className="mt-2 font-semibold">Move forward</h4>
-              <p className="mt-2 text-slate-600">
-                Small actions that reduce anxiety by creating momentum.
-              </p>
-            </div>
+            {/* SECONDARY CTA */}
+            <button
+              onClick={() => window.open(GUMROAD_PREVIEW, "_blank")}
+              className="px-7 py-3 rounded-xl border"
+            >
+              View Notes (Gumroad)
+            </button>
           </div>
+        </div>
+
+        {/* HERO IMAGES (3) */}
+        <div className="grid grid-cols-2 gap-4">
+          <img src="/images/hero1.jpg" className="rounded-3xl shadow-xl" />
+          <img src="/images/hero2.jpg" className="rounded-3xl shadow-xl mt-10" />
+          <img src="/images/hero3.jpg" className="rounded-3xl shadow-xl col-span-2" />
         </div>
       </section>
 
-      {/* CTA */}
-      <section id="start" className="bg-slate-900 py-24">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <h3 className="text-3xl font-semibold text-white">
-            Start with clarity.
-          </h3>
+      {/* PRODUCTS */}
+      <section className="max-w-7xl mx-auto px-6 py-20">
+        <h3 className="text-4xl font-bold text-center mb-12">
+          Popular Notes
+        </h3>
 
-          <p className="mt-5 text-slate-300">
-            Short, calm prompts and systems you can use daily.
-            No pressure. No noise.
-          </p>
-
-          <div className="mt-10 flex justify-center gap-4 flex-wrap">
-            <a
-              href="#"
-              className="rounded-xl bg-white px-6 py-3 text-sm font-medium text-slate-900 hover:bg-slate-100 transition"
-            >
-              Join WhatsApp channel
-            </a>
-
-            <a
-              href="#"
-              className="rounded-xl border border-slate-600 px-6 py-3 text-sm font-medium text-white hover:bg-slate-800 transition"
-            >
-              Get daily clarity
-            </a>
-          </div>
+        <div className="grid md:grid-cols-3 gap-8">
+          <Product title="Overthinking Detox" price="₹599" />
+          <Product title="Daily Mental Reset" price="₹299" />
+          <Product title="Clarity Blueprint" price="₹999" />
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="py-10 text-center text-sm text-slate-500">
-        © {new Date().getFullYear()} Mental Clarity. Built for calm minds.
+      <footer className="py-10 text-center text-slate-500">
+        © 2026 MentalClarity. All rights reserved.
       </footer>
 
     </main>
+  );
+}
+
+/* COMPONENT */
+function Product({ title, price }) {
+  return (
+    <div className="border rounded-3xl p-6 shadow hover:scale-105 transition">
+      <h4 className="text-xl font-semibold">{title}</h4>
+      <p className="mt-2 text-2xl font-bold">{price}</p>
+
+      <button
+        onClick={() => window.open(GUMROAD_MAIN, "_blank")}
+        className="mt-4 w-full py-3 rounded-xl bg-black text-white"
+      >
+        Buy on Gumroad
+      </button>
+    </div>
   );
 }
