@@ -3,7 +3,7 @@
 /* 👉 GLOBAL LINKS */
 const WHATSAPP_LINK = "https://whatsapp.com/channel/0029Vb7NJHw3mFYDENkWmn38";
 
-/* 👉 GUMROAD PRODUCT LINKS (each PDF is different) */
+/* 👉 GUMROAD PRODUCT LINKS */
 const PRODUCTS = {
   detox: "https://63592130913.gumroad.com/l/overthinking-detox",
   reset: "https://63592130913.gumroad.com/l/daily-mental-reset",
@@ -16,9 +16,24 @@ export default function Page() {
 
       {/* NAVBAR */}
       <nav className="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
-        <div className="flex items-center gap-3">
-          <img src="/images/tt.png" alt="MentalClarity Logo" className="w-10 h-10" />
-          <h1 className="text-xl font-bold">MentalClarity</h1>
+        
+        {/* LOGO + GODLY IMAGE */}
+        <div className="flex flex-col items-start gap-2">
+          <div className="flex items-center gap-3">
+            <img
+              src="/images/tt.png"
+              alt="MentalClarity Logo"
+              className="w-10 h-10"
+            />
+            <h1 className="text-xl font-bold">MentalClarity</h1>
+          </div>
+
+          {/* GODLY IMAGE */}
+          <img
+            src="/images/godly.jpg"
+            alt="Godly Inspiration"
+            className="w-24 rounded-xl shadow"
+          />
         </div>
 
         <button
@@ -82,23 +97,9 @@ export default function Page() {
         </h3>
 
         <div className="grid md:grid-cols-3 gap-8">
-          <Product
-            title="Overthinking Detox"
-            price="₹599"
-            link={PRODUCTS.detox}
-          />
-
-          <Product
-            title="Daily Mental Reset"
-            price="₹299"
-            link={PRODUCTS.reset}
-          />
-
-          <Product
-            title="Clarity Blueprint"
-            price="₹999"
-            link={PRODUCTS.blueprint}
-          />
+          <Product title="Overthinking Detox" price="₹599" link={PRODUCTS.detox} />
+          <Product title="Daily Mental Reset" price="₹299" link={PRODUCTS.reset} />
+          <Product title="Clarity Blueprint" price="₹999" link={PRODUCTS.blueprint} />
         </div>
       </section>
 
