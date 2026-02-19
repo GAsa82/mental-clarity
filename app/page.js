@@ -12,77 +12,71 @@ const PRODUCTS = {
 
 export default function Page() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-50 to-white text-slate-800">
+    <main className="min-h-screen bg-white text-slate-800">
 
-      {/* NAVBAR */}
-      <nav className="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
+      {/* GODLY HERO STRIP */}
+      <section className="relative w-full h-[70vh] md:h-[80vh] overflow-hidden">
+        <img
+          src="/images/godly.jpg"
+          alt="Godly Inspiration"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
 
-        {/* GODLY IMAGE + BRAND */}
-        <div className="flex flex-col items-start gap-3">
-          <img
-            src="/images/godly.jpg"
-            alt="Godly Inspiration"
-            className="w-36 md:w-44 rounded-2xl shadow-lg"
-          />
-          <h1 className="text-xl font-bold">MentalClarity</h1>
-        </div>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/30" />
 
-        <button
-          onClick={() => window.open(WHATSAPP_LINK, "_blank")}
-          className="px-5 py-2 rounded-full bg-green-600 text-white"
-        >
-          Join WhatsApp
-        </button>
-      </nav>
+        {/* CONTENT ON IMAGE */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex flex-col justify-between py-10">
+          
+          {/* TOP BAR */}
+          <div className="flex justify-between items-center">
+            <h1 className="text-2xl font-bold text-white tracking-wide">
+              MentalClarity
+            </h1>
 
-      {/* HERO */}
-      <section className="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-14 items-center">
-        <div>
-          <h2 className="text-5xl font-extrabold leading-tight">
-            Stop Overthinking.
-            <br />
-            Start Deciding.
-          </h2>
-
-          <p className="mt-6 text-lg text-slate-600">
-            Practical mental clarity systems to help you escape decision paralysis
-            and take confident action — without motivation fluff.
-          </p>
-
-          <ul className="mt-6 space-y-2 text-slate-600">
-            <li>✔ Clear mental clutter</li>
-            <li>✔ Make faster decisions</li>
-            <li>✔ Build calm daily focus</li>
-          </ul>
-
-          {/* CTAs */}
-          <div className="mt-8 flex gap-4 flex-wrap">
             <button
               onClick={() => window.open(WHATSAPP_LINK, "_blank")}
-              className="px-7 py-3 rounded-xl bg-green-600 text-white"
+              className="px-6 py-3 rounded-full bg-green-600 text-white font-medium"
             >
-              Get Daily Clarity on WhatsApp
-            </button>
-
-            <button
-              onClick={() => window.open(PRODUCTS.detox, "_blank")}
-              className="px-7 py-3 rounded-xl border"
-            >
-              View Notes (Gumroad)
+              Join WhatsApp
             </button>
           </div>
-        </div>
 
-        {/* HERO IMAGES */}
-        <div className="grid grid-cols-2 gap-4">
-          <img src="/images/hero1.jpg" className="rounded-3xl shadow-xl" />
-          <img src="/images/hero2.jpg" className="rounded-3xl shadow-xl mt-10" />
-          <img src="/images/hero3.jpg" className="rounded-3xl shadow-xl col-span-2" />
+          {/* CENTER MESSAGE */}
+          <div className="max-w-2xl">
+            <h2 className="text-5xl md:text-6xl font-extrabold text-white leading-tight">
+              Stop Overthinking.
+              <br />
+              Start Deciding.
+            </h2>
+
+            <p className="mt-6 text-lg text-slate-200">
+              Practical mental clarity systems to escape decision paralysis
+              and take calm, confident action.
+            </p>
+
+            <div className="mt-8 flex gap-4 flex-wrap">
+              <button
+                onClick={() => window.open(WHATSAPP_LINK, "_blank")}
+                className="px-7 py-3 rounded-xl bg-green-600 text-white"
+              >
+                Get Daily Clarity
+              </button>
+
+              <button
+                onClick={() => window.open(PRODUCTS.detox, "_blank")}
+                className="px-7 py-3 rounded-xl bg-white text-black"
+              >
+                View Notes
+              </button>
+            </div>
+          </div>
+
         </div>
       </section>
 
       {/* PRODUCTS */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
+      <section className="max-w-7xl mx-auto px-6 py-24">
         <h3 className="text-4xl font-bold text-center mb-12">
           Popular Notes
         </h3>
