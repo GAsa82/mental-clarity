@@ -16,24 +16,15 @@ export default function Page() {
 
       {/* NAVBAR */}
       <nav className="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
-        
-        {/* LOGO + GODLY IMAGE */}
-        <div className="flex flex-col items-start gap-2">
-          <div className="flex items-center gap-3">
-            <img
-              src="/images/tt.png"
-              alt="MentalClarity Logo"
-              className="w-10 h-10"
-            />
-            <h1 className="text-xl font-bold">MentalClarity</h1>
-          </div>
 
-          {/* GODLY IMAGE */}
+        {/* GODLY IMAGE + BRAND */}
+        <div className="flex flex-col items-start gap-3">
           <img
             src="/images/godly.jpg"
             alt="Godly Inspiration"
-            className="w-24 rounded-xl shadow"
+            className="w-36 md:w-44 rounded-2xl shadow-lg"
           />
+          <h1 className="text-xl font-bold">MentalClarity</h1>
         </div>
 
         <button
