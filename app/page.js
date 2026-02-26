@@ -24,9 +24,9 @@ export default function Page() {
           
           <div className="flex items-center gap-3">
             <img
-              src="/images/godly.jpg"
+              src="/images/logo.jpg"
               alt="MentalClarity"
-              className="w-12 rounded-xl shadow"
+              className="w-20 h-20 rounded-xl shadow object-contain"
             />
             <h1 className="text-lg font-bold">MentalClarity</h1>
           </div>
