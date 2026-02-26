@@ -42,7 +42,7 @@ export default function Page() {
           </div>
 
           {/* SCROLL NAV */}
-          <div className="hidden md:flex gap-6 text-sm font-medium">
+          <div className="hidden md:flex gap-6 text-lg font-semibold">
             <button onClick={() => scrollTo("overthinking")} className={navClass("overthinking")}>
               Overthinking
             </button>
