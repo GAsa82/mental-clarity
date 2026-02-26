@@ -11,95 +11,164 @@ const PRODUCTS = {
 };
 
 export default function Page() {
+  const scrollTo = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-50 to-white text-slate-800">
+    <main className="bg-gradient-to-br from-slate-50 to-white text-slate-800 scroll-smooth">
 
       {/* NAVBAR */}
-      <nav className="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
-        <div className="flex flex-col items-start gap-2">
-          <img
-            src="/images/logo.jpg"
-            alt="MentalClarity Logo"
-            className="w-48 h-auto rounded-2xl shadow-lg object-contain"
-          />
-          <h1 className="text-lg font-bold">MentalClarity</h1>
-        </div>
+      <nav className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur z-50 border-b">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          
+          <div className="flex items-center gap-3">
+            <img
+              src="/images/godly.jpg"
+              alt="MentalClarity"
+              className="w-12 rounded-xl shadow"
+            />
+            <h1 className="text-lg font-bold">MentalClarity</h1>
+          </div>
 
-        <button
-          onClick={() => window.open(WHATSAPP_LINK, "_blank")}
-          className="px-5 py-2 rounded-full bg-green-600 text-white"
-        >
-          Join WhatsApp
-        </button>
+          {/* SCROLL NAV */}
+          <div className="hidden md:flex gap-6 text-sm font-medium">
+            <button onClick={() => scrollTo("overthinking")} className="hover:text-black">
+              Overthinking
+            </button>
+            <button onClick={() => scrollTo("decision")} className="hover:text-black">
+              Decision Paralysis
+            </button>
+            <button onClick={() => scrollTo("clarity")} className="hover:text-black">
+              Mental Clarity
+            </button>
+            <button onClick={() => scrollTo("discipline")} className="hover:text-black">
+              Discipline
+            </button>
+          </div>
+
+          <button
+            onClick={() => window.open(WHATSAPP_LINK, "_blank")}
+            className="px-4 py-2 rounded-full bg-green-600 text-white text-sm"
+          >
+            Join WhatsApp
+          </button>
+        </div>
       </nav>
 
-      {/* HERO */}
-      <section className="max-w-7xl mx-auto px-6 min-h-[85vh] grid md:grid-cols-2 gap-10 items-center">
+      {/* OFFSET FOR FIXED NAV */}
+      <div className="h-20" />
 
-        {/* LEFT CONTENT */}
-        <div className="flex flex-col justify-center">
+      {/* ================= PAGE 1 — OVERTHINKING ================= */}
+      <section id="overthinking" className="min-h-screen max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+        <div>
           <h2 className="text-5xl font-extrabold leading-tight">
-            Stop Overthinking.
-            <br />
-            Start Deciding.
+            Stop Overthinking. <br /> Start Deciding.
           </h2>
 
-          <p className="mt-6 text-lg text-slate-600">
-            Practical mental clarity systems to help you escape decision paralysis
-            and take confident action — without motivation fluff.
+          <p className="mt-4 text-xl font-medium text-slate-700">
+            I help people who overthink decisions and feel mentally stuck.
           </p>
 
-          <ul className="mt-6 space-y-2 text-slate-600">
-            <li>✔ Clear mental clutter</li>
-            <li>✔ Make faster decisions</li>
-            <li>✔ Build calm daily focus</li>
-          </ul>
+          <p className="mt-6 text-lg text-slate-600">
+            No motivation fluff. Just systems that cut mental noise.
+          </p>
 
           <div className="mt-8 flex gap-4 flex-wrap">
             <button
               onClick={() => window.open(WHATSAPP_LINK, "_blank")}
               className="px-7 py-3 rounded-xl bg-green-600 text-white"
             >
-              Get Daily Clarity on WhatsApp
+              Get Daily Clarity
             </button>
 
             <button
               onClick={() => window.open(PRODUCTS.detox, "_blank")}
               className="px-7 py-3 rounded-xl border"
             >
-              View Notes (Gumroad)
+              Overthinking Detox
             </button>
           </div>
         </div>
 
-        {/* RIGHT IMAGES */}
-        <div className="grid grid-cols-2 gap-4 h-full content-center">
-          <img
-            src="/images/hero1.jpg"
-            className="rounded-3xl shadow-xl scale-105"
-          />
-          <img
-            src="/images/hero2.jpg"
-            className="rounded-3xl shadow-xl mt-10 scale-105"
-          />
-          <img
-            src="/images/hero3.jpg"
-            className="rounded-3xl shadow-xl col-span-2 scale-110"
-          />
+        <div className="grid grid-cols-2 gap-4">
+          <img src="/images/hero1.jpg" className="rounded-3xl shadow-xl" />
+          <img src="/images/hero2.jpg" className="rounded-3xl shadow-xl mt-10" />
         </div>
-
       </section>
 
-      {/* PRODUCTS */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        <h3 className="text-4xl font-bold text-center mb-12">
-          Popular Notes
-        </h3>
+      {/* ================= PAGE 2 — DECISION PARALYSIS ================= */}
+      <section id="decision" className="min-h-screen bg-slate-100 flex items-center">
+        <div className="max-w-5xl mx-auto px-6 text-center">
+          <h3 className="text-4xl font-bold mb-6">Decision Paralysis</h3>
+          <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+            Too many options. Zero movement.  
+            You don’t need confidence — you need filters.
+          </p>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          <Product title="Overthinking Detox" price="₹599" link={PRODUCTS.detox} />
-          <Product title="Daily Mental Reset" price="₹299" link={PRODUCTS.reset} />
-          <Product title="Clarity Blueprint" price="₹999" link={PRODUCTS.blueprint} />
+          <div className="mt-10 grid md:grid-cols-3 gap-6">
+            <Card text="Fear of choosing wrong" />
+            <Card text="Waiting for perfect clarity" />
+            <Card text="Over-research addiction" />
+          </div>
+
+          <button
+            onClick={() => window.open(PRODUCTS.reset, "_blank")}
+            className="mt-10 px-8 py-3 rounded-xl bg-black text-white"
+          >
+            Daily Mental Reset
+          </button>
+        </div>
+      </section>
+
+      {/* ================= PAGE 3 — MENTAL CLARITY ================= */}
+      <section id="clarity" className="min-h-screen flex items-center">
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h3 className="text-4xl font-bold mb-6">Mental Clarity</h3>
+            <p className="text-lg text-slate-600">
+              Clarity = fewer thoughts, better ones.
+            </p>
+
+            <ul className="mt-6 space-y-3 text-slate-600">
+              <li>✔ Calm focus</li>
+              <li>✔ Direction without obsession</li>
+              <li>✔ Action without pressure</li>
+            </ul>
+
+            <button
+              onClick={() => window.open(PRODUCTS.blueprint, "_blank")}
+              className="mt-8 px-8 py-3 rounded-xl bg-black text-white"
+            >
+              Clarity Blueprint
+            </button>
+          </div>
+
+          <img src="/images/hero3.jpg" className="rounded-3xl shadow-xl" />
+        </div>
+      </section>
+
+      {/* ================= PAGE 4 — DISCIPLINE / ADDICTION ================= */}
+      <section id="discipline" className="min-h-screen bg-slate-900 text-white flex items-center">
+        <div className="max-w-5xl mx-auto px-6 text-center">
+          <h3 className="text-4xl font-bold mb-6">Discipline & Addiction</h3>
+
+          <p className="text-lg text-slate-300 max-w-3xl mx-auto">
+            Not a willpower problem. A system problem.
+          </p>
+
+          <div className="mt-10 grid md:grid-cols-3 gap-6">
+            <Card dark text="Phone addiction" />
+            <Card dark text="Dopamine loops" />
+            <Card dark text="No consistency" />
+          </div>
+
+          <button
+            onClick={() => window.open(WHATSAPP_LINK, "_blank")}
+            className="mt-10 px-8 py-3 rounded-xl bg-green-600 text-white"
+          >
+            Fix Discipline (WhatsApp)
+          </button>
         </div>
       </section>
 
@@ -112,19 +181,11 @@ export default function Page() {
   );
 }
 
-/* PRODUCT COMPONENT */
-function Product({ title, price, link }) {
+/* CARD */
+function Card({ text, dark }) {
   return (
-    <div className="border rounded-3xl p-6 shadow hover:scale-105 transition">
-      <h4 className="text-xl font-semibold">{title}</h4>
-      <p className="mt-2 text-2xl font-bold">{price}</p>
-
-      <button
-        onClick={() => window.open(link, "_blank")}
-        className="mt-4 w-full py-3 rounded-xl bg-black text-white"
-      >
-        Buy on Gumroad
-      </button>
+    <div className={`p-6 rounded-2xl shadow ${dark ? "bg-slate-800" : "bg-white"}`}>
+      <p className={dark ? "text-slate-300" : "text-slate-600"}>{text}</p>
     </div>
   );
 }
