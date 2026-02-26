@@ -19,16 +19,19 @@ export default function Page() {
     <main className="bg-gradient-to-br from-slate-50 to-white text-slate-800 scroll-smooth">
 
       {/* NAVBAR */}
-      <nav className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur z-50 border-b">
+      <nav className="fixed top-0 left-0 w-full bg-white/90 backdrop-blur z-50 border-b">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          
-          <div className="flex items-center gap-3">
+
+          {/* LOGO */}
+          <div className="flex items-center gap-4">
             <img
-              src="/images/godly.jpg"
-              alt="MentalClarity"
-              className="w-12 rounded-xl shadow"
+              src="/images/logo.jpg"
+              alt="MentalClarity Logo"
+              className="w-20 h-20 rounded-2xl shadow-lg object-cover"
             />
-            <h1 className="text-lg font-bold">MentalClarity</h1>
+            <h1 className="text-xl font-bold leading-tight">
+              Mental<br />Clarity
+            </h1>
           </div>
 
           {/* SCROLL NAV */}
@@ -47,6 +50,7 @@ export default function Page() {
             </button>
           </div>
 
+          {/* CTA */}
           <button
             onClick={() => window.open(WHATSAPP_LINK, "_blank")}
             className="px-4 py-2 rounded-full bg-green-600 text-white text-sm"
@@ -57,7 +61,7 @@ export default function Page() {
       </nav>
 
       {/* OFFSET FOR FIXED NAV */}
-      <div className="h-20" />
+      <div className="h-28" />
 
       {/* ================= PAGE 1 — OVERTHINKING ================= */}
       <section id="overthinking" className="min-h-screen max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
@@ -111,13 +115,6 @@ export default function Page() {
             <Card text="Waiting for perfect clarity" />
             <Card text="Over-research addiction" />
           </div>
-
-          <button
-            onClick={() => window.open(PRODUCTS.reset, "_blank")}
-            className="mt-10 px-8 py-3 rounded-xl bg-black text-white"
-          >
-            Daily Mental Reset
-          </button>
         </div>
       </section>
 
@@ -129,46 +126,19 @@ export default function Page() {
             <p className="text-lg text-slate-600">
               Clarity = fewer thoughts, better ones.
             </p>
-
-            <ul className="mt-6 space-y-3 text-slate-600">
-              <li>✔ Calm focus</li>
-              <li>✔ Direction without obsession</li>
-              <li>✔ Action without pressure</li>
-            </ul>
-
-            <button
-              onClick={() => window.open(PRODUCTS.blueprint, "_blank")}
-              className="mt-8 px-8 py-3 rounded-xl bg-black text-white"
-            >
-              Clarity Blueprint
-            </button>
           </div>
 
           <img src="/images/hero3.jpg" className="rounded-3xl shadow-xl" />
         </div>
       </section>
 
-      {/* ================= PAGE 4 — DISCIPLINE / ADDICTION ================= */}
+      {/* ================= PAGE 4 — DISCIPLINE ================= */}
       <section id="discipline" className="min-h-screen bg-slate-900 text-white flex items-center">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <h3 className="text-4xl font-bold mb-6">Discipline & Addiction</h3>
-
-          <p className="text-lg text-slate-300 max-w-3xl mx-auto">
+          <p className="text-lg text-slate-300">
             Not a willpower problem. A system problem.
           </p>
-
-          <div className="mt-10 grid md:grid-cols-3 gap-6">
-            <Card dark text="Phone addiction" />
-            <Card dark text="Dopamine loops" />
-            <Card dark text="No consistency" />
-          </div>
-
-          <button
-            onClick={() => window.open(WHATSAPP_LINK, "_blank")}
-            className="mt-10 px-8 py-3 rounded-xl bg-green-600 text-white"
-          >
-            Fix Discipline (WhatsApp)
-          </button>
         </div>
       </section>
 
@@ -182,10 +152,10 @@ export default function Page() {
 }
 
 /* CARD */
-function Card({ text, dark }) {
+function Card({ text }) {
   return (
-    <div className={`p-6 rounded-2xl shadow ${dark ? "bg-slate-800" : "bg-white"}`}>
-      <p className={dark ? "text-slate-300" : "text-slate-600"}>{text}</p>
+    <div className="p-6 rounded-2xl shadow bg-white">
+      <p className="text-slate-600">{text}</p>
     </div>
   );
 }
