@@ -1,5 +1,7 @@
  "use client";
 
+import { useState } from "react";
+
 /* 👉 GLOBAL LINKS */
 const WHATSAPP_LINK = "https://whatsapp.com/channel/0029Vb7NJHw3mFYDENkWmn38";
 
@@ -11,9 +13,19 @@ const PRODUCTS = {
 };
 
 export default function Page() {
+  const [active, setActive] = useState("overthinking");
+
   const scrollTo = (id) => {
+    setActive(id);
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
+
+  const navBtn = (id, color) =>
+    `px-3 py-1 rounded-full transition ${
+      active === id
+        ? `bg-${color}-600 text-white shadow`
+        : "text-slate-600 hover:text-black"
+    }`;
 
   return (
     <main className="bg-gradient-to-br from-slate-50 to-white text-slate-800 scroll-smooth">
@@ -21,7 +33,7 @@ export default function Page() {
       {/* NAVBAR */}
       <nav className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur z-50 border-b">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          
+
           <div className="flex items-center gap-3">
             <img
               src="/images/logo.jpg"
@@ -32,17 +44,29 @@ export default function Page() {
           </div>
 
           {/* SCROLL NAV */}
-          <div className="hidden md:flex gap-6 text-sm font-medium">
-            <button onClick={() => scrollTo("overthinking")} className="hover:text-black">
+          <div className="hidden md:flex gap-3 text-sm font-medium">
+            <button
+              onClick={() => scrollTo("overthinking")}
+              className={navBtn("overthinking", "indigo")}
+            >
               Overthinking
             </button>
-            <button onClick={() => scrollTo("decision")} className="hover:text-black">
+            <button
+              onClick={() => scrollTo("decision")}
+              className={navBtn("decision", "amber")}
+            >
               Decision Paralysis
             </button>
-            <button onClick={() => scrollTo("clarity")} className="hover:text-black">
+            <button
+              onClick={() => scrollTo("clarity")}
+              className={navBtn("clarity", "emerald")}
+            >
               Mental Clarity
             </button>
-            <button onClick={() => scrollTo("discipline")} className="hover:text-black">
+            <button
+              onClick={() => scrollTo("discipline")}
+              className={navBtn("discipline", "rose")}
+            >
               Discipline
             </button>
           </div>
@@ -56,7 +80,7 @@ export default function Page() {
         </div>
       </nav>
 
-      {/* OFFSET FOR FIXED NAV */}
+      {/* OFFSET */}
       <div className="h-20" />
 
       {/* ================= PAGE 1 — OVERTHINKING ================= */}
@@ -101,23 +125,12 @@ export default function Page() {
       <section id="decision" className="min-h-screen bg-slate-100 flex items-center">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <h3 className="text-4xl font-bold mb-6">Decision Paralysis</h3>
-          <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-            Too many options. Zero movement.  
-            You don’t need confidence — you need filters.
-          </p>
 
           <div className="mt-10 grid md:grid-cols-3 gap-6">
             <Card text="Fear of choosing wrong" />
             <Card text="Waiting for perfect clarity" />
             <Card text="Over-research addiction" />
           </div>
-
-          <button
-            onClick={() => window.open(PRODUCTS.reset, "_blank")}
-            className="mt-10 px-8 py-3 rounded-xl bg-black text-white"
-          >
-            Daily Mental Reset
-          </button>
         </div>
       </section>
 
@@ -126,53 +139,18 @@ export default function Page() {
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h3 className="text-4xl font-bold mb-6">Mental Clarity</h3>
-            <p className="text-lg text-slate-600">
-              Clarity = fewer thoughts, better ones.
-            </p>
-
-            <ul className="mt-6 space-y-3 text-slate-600">
-              <li>✔ Calm focus</li>
-              <li>✔ Direction without obsession</li>
-              <li>✔ Action without pressure</li>
-            </ul>
-
-            <button
-              onClick={() => window.open(PRODUCTS.blueprint, "_blank")}
-              className="mt-8 px-8 py-3 rounded-xl bg-black text-white"
-            >
-              Clarity Blueprint
-            </button>
           </div>
-
           <img src="/images/hero3.jpg" className="rounded-3xl shadow-xl" />
         </div>
       </section>
 
-      {/* ================= PAGE 4 — DISCIPLINE / ADDICTION ================= */}
+      {/* ================= PAGE 4 — DISCIPLINE ================= */}
       <section id="discipline" className="min-h-screen bg-slate-900 text-white flex items-center">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <h3 className="text-4xl font-bold mb-6">Discipline & Addiction</h3>
-
-          <p className="text-lg text-slate-300 max-w-3xl mx-auto">
-            Not a willpower problem. A system problem.
-          </p>
-
-          <div className="mt-10 grid md:grid-cols-3 gap-6">
-            <Card dark text="Phone addiction" />
-            <Card dark text="Dopamine loops" />
-            <Card dark text="No consistency" />
-          </div>
-
-          <button
-            onClick={() => window.open(WHATSAPP_LINK, "_blank")}
-            className="mt-10 px-8 py-3 rounded-xl bg-green-600 text-white"
-          >
-            Fix Discipline (WhatsApp)
-          </button>
         </div>
       </section>
 
-      {/* FOOTER */}
       <footer className="py-10 text-center text-slate-500">
         © 2026 MentalClarity. All rights reserved.
       </footer>
@@ -182,10 +160,10 @@ export default function Page() {
 }
 
 /* CARD */
-function Card({ text, dark }) {
+function Card({ text }) {
   return (
-    <div className={`p-6 rounded-2xl shadow ${dark ? "bg-slate-800" : "bg-white"}`}>
-      <p className={dark ? "text-slate-300" : "text-slate-600"}>{text}</p>
+    <div className="p-6 rounded-2xl shadow bg-white">
+      <p className="text-slate-600">{text}</p>
     </div>
   );
 }
